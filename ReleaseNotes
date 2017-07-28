@@ -1,0 +1,57 @@
+$Id: ReleaseNotes,v 1.8 2013/05/03 11:19:37 mwesdorp Exp $
+
+Release Notes
+
+sqsh 2.x.y
+
+Please read doc/CHANGES-2.x.y for a detailed list of changes in this release.
+
+sqsh 2.1.6
+
+Multiple changes contributed by Martin Wesdorp.
+This includes colorized output when using readline, handling of login and query
+timeouts, and most importantly updating the experimental kerberos
+support to be compatible with isql.
+Please read doc/CHANGES-2.1.6 for a detailed list of changes in this release.
+
+sqsh 2.1.5
+
+Experimental support for kerberos network authentication, via the
+-K and -R command line flags.
+Various bug fixes. 
+
+sqsh 2.1.4
+
+Various bug fixes.
+
+Command line -P argument hiding.
+Allow host:port syntax for the -S option if built with OpenClient
+12.5.1 or later.
+Experimental support for CSV output (\go -m csv).
+
+sqsh 2.1.3
+
+This is an incremental bug-fix release.
+
+Better library detection in the configure script (handles new OCS 15 library
+names)
+
+Cygwin build instructions and files.
+
+
+
+sqsh 2.1.2
+
+This is an incremental bug-fix release.
+
+Bugs fixed (bug IDs from SourceForge's bug tracker)
+
+1010901		Problems with -w ($width).
+1051672		Missing OCS libs for static build
+1010961		Can't provide multiple sqshrc's
+987494		Better version reporting
+
+Other fixes include fixing a segfault if "go" appears on its own in a 
+comment block, and making sure that the \read command actually reads from
+the terminal even when using redirected input or the -i flag.
+

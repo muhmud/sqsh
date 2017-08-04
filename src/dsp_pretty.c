@@ -746,14 +746,18 @@ static void dsp_prrow( output, desc )
 				for( j = 0; char_count < col->c_width && col->c_ptr[j] != '\0' &&
 					col->c_ptr[j] != '\n'; j++)
 				{
-					dsp_fputc( col->c_ptr[j], output );
           if ((col->c_ptr[j] & 0xc0) != 0x80) {
               mbstowcs(&wch, col->c_ptr + j, 1);
               display_width = mk_wcwidth(wch);
               if (display_width > 0) {
+                if (char_count + display_width >= col->c_width) {
+                  break;
+                }
+                
                 char_count += display_width;
               }
           }
+					dsp_fputc( col->c_ptr[j], output );
 				}
         
 				col->c_ptr += j;
